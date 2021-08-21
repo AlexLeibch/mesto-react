@@ -5,7 +5,7 @@ import React from 'react';
 import Header  from './Header';
 import Footer from './Footer';
 import Main from './Main';
-import PopupWIthForm from './PopupWithForm';
+import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
                 <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick}
                 onEditAvatar={handleEditAvatarClick} onCardClick={HandleCardClick}/>
                 <Footer/>
-                <PopupWIthForm
+                <PopupWithForm
                     title = "Редактировать профиль"
                     name = "profile"
                     buttonText = "Сохранить"
@@ -58,9 +58,9 @@ function App() {
                     <input id="form-description-input" type="text" name="description"  placeholder="описание" 
                             required minLength="2" maxLength="200" className="popup__field popup__field_type_description"/>
                     <span  className="form-description-input-error"></span>
-                </PopupWIthForm>
+                </PopupWithForm>
 
-                <PopupWIthForm
+                <PopupWithForm
                     title = "Новое место"
                     name = "cardpopup"
                     buttonText = "Создать"
@@ -72,9 +72,9 @@ function App() {
                     <input type="url" id="form-link-input" name="form-link-input"  placeholder="Ссылка на картинку" 
                     required minLength="2" className="popup__field popup__field_type_imageUrl"/>
                     <span className="form-link-input-error"></span>
-                    </PopupWIthForm>
+                    </PopupWithForm>
                 
-                <PopupWIthForm
+                <PopupWithForm
                     title ="Обновить Аватар"
                     name = "avatarpopup"
                     buttonText = "Сохранить"
@@ -82,13 +82,13 @@ function App() {
                     onClose = {closeAllPopups}>
                     <input type="url" id="form-avatar" className="popup__field popup__field_avatar_imageUrl" placeholder="Ссылка на аватар"/>
                     <span className="form-avatar-error" id="form-avatar-error"></span>
-                </PopupWIthForm>
-                <PopupWIthForm
+                </PopupWithForm>
+                <PopupWithForm
                     title="Вы уверены?"
                     name="remove-card"
                     buttonText="Да"
                     onClose={closeAllPopups}>
-                </PopupWIthForm>
+                </PopupWithForm>
                 <ImagePopup
                     card={selectedCard}
                     onClose={closeAllPopups}/>
