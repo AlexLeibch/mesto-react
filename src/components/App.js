@@ -6,12 +6,14 @@ import Header  from './Header';
 import Footer from './Footer';
 import Main from './Main';
 import PopupWIthForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 function App() {
 
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
+    const [selectedCard, setSelectedCards] = React.useState('')
 
     function handleEditAvatarClick () {
         setIsEditAvatarPopupOpen(true)
@@ -25,10 +27,15 @@ function App() {
         setIsAddPlacePopupOpen(true)
     }
 
+    function HandleCardClick(card) {
+        setSelectedCards(card)
+    }
+
     function closeAllPopups() {
         setIsEditProfilePopupOpen(false)
         setIsEditAvatarPopupOpen(false)
         setIsAddPlacePopupOpen(false)
+        setSelectedCards('')
     }
 
 
@@ -36,8 +43,8 @@ function App() {
         <div className="page">
             <div className="page__root">
                 <Header/>
-                <Main onEditProfile = {handleEditProfileClick} onAddPlace = {handleAddPlaceClick}
-                onEditAvatar = {handleEditAvatarClick}/>
+                <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick}
+                onEditAvatar={handleEditAvatarClick} onCardClick={HandleCardClick}/>
                 <Footer/>
                 <PopupWIthForm
                     title = "Редактировать профиль"
@@ -76,6 +83,15 @@ function App() {
                     <input type="url" id="form-avatar" className="popup__field popup__field_avatar_imageUrl" placeholder="Ссылка на аватар"/>
                     <span className="form-avatar-error" id="form-avatar-error"></span>
                 </PopupWIthForm>
+                <PopupWIthForm
+                    title="Вы уверены?"
+                    name="remove-card"
+                    buttonText="Да"
+                    onClose={closeAllPopups}>
+                </PopupWIthForm>
+                <ImagePopup
+                    card={selectedCard}
+                    onClose={closeAllPopups}/>
             </div>
         </div>
   );
