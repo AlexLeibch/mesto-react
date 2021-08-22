@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import '../index.css';
 import React from 'react';
 
@@ -13,7 +12,7 @@ function App() {
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
-    const [selectedCard, setSelectedCards] = React.useState('')
+    const [selectedCard, setSelectedCards] = React.useState({isOpen: false})
 
     function handleEditAvatarClick () {
         setIsEditAvatarPopupOpen(true)
@@ -27,15 +26,15 @@ function App() {
         setIsAddPlacePopupOpen(true)
     }
 
-    function HandleCardClick(card) {
-        setSelectedCards(card)
+    function HandleCardClick({name, link, isOpen}) {
+        setSelectedCards({name, link, isOpen: !isOpen})
     }
 
     function closeAllPopups() {
         setIsEditProfilePopupOpen(false)
         setIsEditAvatarPopupOpen(false)
         setIsAddPlacePopupOpen(false)
-        setSelectedCards('')
+        setSelectedCards({isOpen: false})
     }
 
 

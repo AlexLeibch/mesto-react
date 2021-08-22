@@ -15,7 +15,7 @@ function Main(props)  {
         .then((data) => {
             setUserName(data.name)
             setUserDescription(data.about)
-            setUserAvatar(data.avatar)
+            setUserAvatar(data.avatar)  
         })
         .catch((err) => {
             console.log(err)
@@ -51,7 +51,7 @@ function Main(props)  {
                 </button>
             </section>
             <section className="elements">
-                {cards.map(card => (<Card Key={card._id} card={card} onCardClick={onCardClick}/>))}
+                {cards.map(card => (<Card key={card._id} card={card} onCardClick={onCardClick}/>))}
             </section>
         </main>
     )
