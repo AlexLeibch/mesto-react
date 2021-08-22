@@ -1,5 +1,5 @@
 import React from "react"
-import profileAddButton from '../components/vendor/image/profile__add-button.svg'
+import profileAddButton from '../vendor/image/profile__add-button.svg'
 import api from "../utils/api"
 import Card from "./Card"
 
