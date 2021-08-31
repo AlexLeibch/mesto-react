@@ -55,6 +55,14 @@
           headers: this._headers
         }).then(this._checkStatus)
       }
+
+      changeLikeCardStatus(cardId, isLiked) {
+        if (isLiked) {
+          return this.likeCard(cardId) 
+        } else {
+          return this.dislikeCard(cardId)
+        }
+      }
     
       dislikeCard(cardId) {
         return fetch(`${this._address}/cards/likes/${cardId}`, {
